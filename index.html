@@ -12,22 +12,65 @@
         }
 
     </style>
+    <script src="index.js"></script>
 </head>
 <body>
-    <div class="Main">
-        <h1>Тестовое приложение</h1>
-        <img src="{{ url_for('static', filename='bot.png') }}" alt="">
-        <p></p>
-        <button class="btn f-btn">Тест отправки данных</button>
-    </div>
-    <form class="test-form">    
-        <input type="text" placeholder="Введите заголовок" class="title-inp">
-        <input type="text" placeholder="Введите описание" class="desc-inp">
-        <input type="text" placeholder="Введите текст" class="text-inp">
-        <button class="btn s-btn">Отправить</button>
-    </form>
+    <header>
+        <h1>Викторина</h1>
+    <!--    <div id="arrow_div"><img class="arrow" src='png-transparent-arrow-icon-direction-icon-down-icon-pointer-icon-logo-text-line-blackandwhite-symbol.png'></div>-->
+        <div class="slider">
+          <p> Ребята, вам предстоит пройти викторину, чтобы проверить ваши знания, полученные за первые месяцы обучения. </p>
+          <p>Перед вами будет кол-во вопросов.</p>
+          <p><b>Решать задания вы будете командой.</b></p>
+          <p>Если кто-то не согласен с ответом, вы должны <b>договориться!</b></p>
+          <!-- <p>Если ваше мнение не услышали, <em>сообщите об этом преподавателю</em>.</p> -->
+        <p>Когда будете готовы, нажмите на кнопку:</p>
+          <div class="prev">
+    <div class="arrow-1">
+        <div></div>
+    </div></div> 
+      <div class="next">
+    <div class="arrow-2">
+        <div></div>
+    </div></div>
+        <div class='center'>
+          <input type='submit' value='НАЧАТЬ' class='btn start'>
+        </div>
+      </div>
+      </header>
+      <main>
+    
+        <div class="question_block" id="first_q">
+          <div class="question_number">ВОПРОС 1</div>
+          <p class="question">Первый вопрос</p>
+          <div class="answers12">
+            <div class="answer first">Ответ 1</div>
+            <div class="answer second">Ответ 2</div>
+          </div>
+          <div class="answers34">
+            <div class="answer third">Ответ 3</div>
+            <div class="answer fourth">Ответ 4</div>
+          </div>
+        </div>
+        <div class="q_result_block">
+            <div class="q_result">Верно/неверно</div>
+            <div class="description">Правильный ответ:</div>
+            <div class="right_ans"></div>
+    <!--        <div class="description">Верных ответов:</div>-->
+    <!--        <div class="cur_score"></div>-->
+            <input type='submit' value='ДАЛЬШЕ' class='btn btn_next'>
+       </div>
+        <div class="result_block">
+    <!--        <div class="result_score"></div>-->
+            <h1>Спасибо</h1>
+            <h1>за участие!</h1>
+        </div>
+    
+      </main>
+      <footer>
+      </footer>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="index.js"></script>
+
 
     
 </body>

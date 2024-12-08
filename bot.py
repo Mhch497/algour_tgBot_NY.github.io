@@ -30,8 +30,9 @@ async def start(message: types.Message):
 
 @dp.message(F.content_type == ContentType.WEB_APP_DATA)
 async def parse_data(message: types.Message):
-    data = json.loads(message.web_app_data.data)
-    await message.answer(f'<b>{data["title"]}</b>\n\n<code>{data["desc"]}</code>\n\n{data["text"]}', parse_mode=ParseMode.HTML)
+    data = message.web_app_data.data
+    # print(data)
+    await message.answer(data)
 
 
 async def main():
