@@ -16,7 +16,7 @@ dp = Dispatcher()
 
 @dp.message()
 async def start(message: types.Message):
-    webAppInfo = types.WebAppInfo(url="your-webapp-url")
+    webAppInfo = types.WebAppInfo(url="https://mhch497.github.io/algour_tgBot_NY.github.io/")
     builder = ReplyKeyboardBuilder()
     builder.add(types.KeyboardButton(text='Отправить данные',
                                      web_app=webAppInfo))
