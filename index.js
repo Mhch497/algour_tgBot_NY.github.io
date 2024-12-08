@@ -9,7 +9,18 @@ fBtn.addEventListener("click", () => {
 });
 
 sBtn.addEventListener("click", () => {
-    tg.close();
+    let title = document.getElementsByClassName("title-inp")[0];
+    let description = document.getElementsByClassName("desc-inp")[0];
+    let text = document.getElementsByClassName("text-inp")[0];
+
+    
+    let data = {
+        title: title.value,
+        desc: description.value,    
+        text: text.value
+    }
+
+    tg.sendData(JSON.stringify(data));
 });
 
 // tg.initData - получение данных от пользователя как строку 
