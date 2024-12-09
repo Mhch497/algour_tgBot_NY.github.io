@@ -25,44 +25,44 @@ const titles = document.querySelectorAll('.slider p');
 console.log(titles);
 let currentIndex = 0;
 let btn_start = document.querySelector('.btn.start')
-
-function showTitle(index) {
-    titles[currentIndex].classList.remove('active');
-    titles[index].classList.add('active');
-    currentIndex = index;
-    console.log(currentIndex)
-    if (currentIndex == titles.length - 1) {
-        btn_start.classList.add('active');
-        next.classList.remove('active');
-        prev.classList.add('active');
-    } else if (currentIndex == 0) {
-        prev.classList.remove('active');
-        next.classList.add('active');
-    } else {
-        btn_start.classList.remove('active');
-        next.classList.add('active');
-        prev.classList.add('active');
-    }
-}
+// btn_start.classList.add('active');
+// function showTitle(index) {
+//     titles[currentIndex].classList.remove('active');
+//     titles[index].classList.add('active');
+//     currentIndex = index;
+//     console.log(currentIndex)
+//     if (currentIndex == (titles.length - 1) || titles.length == 0) {
+//         btn_start.classList.add('active');
+//         next.classList.remove('active');
+//         prev.classList.add('active');
+//     } else if (currentIndex == 0) {
+//         prev.classList.remove('active');
+//         next.classList.add('active');
+//     } else {
+//         btn_start.classList.remove('active');
+//         next.classList.add('active');
+//         prev.classList.add('active');
+//     }
+// }
 let prev = document.querySelector('.prev')
 let next = document.querySelector('.next')
-showTitle(currentIndex);
-prev.addEventListener('click', function () {
-    //    if (event.target.classList.contains('prev')) {
-    let index = currentIndex - 1;
-    if (index < 0) {
-        index = titles.length - 1;
-    }
-    showTitle(index);
-});
-//    else if (event.target.classList.contains('next')) {
-next.addEventListener('click', function () {
-    let index = currentIndex + 1;
-    if (index >= titles.length) {
-        index = 0;
-    }
-    showTitle(index);
-});
+// showTitle(0);
+// prev.addEventListener('click', function () {
+//     //    if (event.target.classList.contains('prev')) {
+//     let index = currentIndex - 1;
+//     if (index < 0) {
+//         index = titles.length - 1;
+//     }
+//     showTitle(index);
+// });
+// //    else if (event.target.classList.contains('next')) {
+// next.addEventListener('click', function () {
+//     let index = currentIndex + 1;
+//     if (index >= titles.length) {
+//         index = 0;
+//     }
+//     showTitle(index);
+// });
 
 
 class Question {
@@ -168,11 +168,11 @@ function check_answer(answer) {
     if (answer == cur_question.right_answer) {
         cur_result += 1
         show_correct("Верно")
-        tg.sendData("Верно");
+        // tg.sendData("Верно");
 
     } else {
         show_correct("Неверно")
-        tg.sendData("Неверно");
+        // tg.sendData("Неверно");
 
     }
 }
