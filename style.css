@@ -28,6 +28,8 @@
   
   main{
     overflow: hidden;
+    background-color: #fff;
+
   }
   
   .btn.start {
