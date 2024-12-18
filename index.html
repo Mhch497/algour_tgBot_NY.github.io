@@ -18,31 +18,45 @@
 
 <body>
     <header>
-        <h1>Викторина</h1>
+        <h1>Новогодний квест</h1>
         <!--    <div id="arrow_div"><img class="arrow" src='png-transparent-arrow-icon-direction-icon-down-icon-pointer-icon-logo-text-line-blackandwhite-symbol.png'></div>-->
-        <div class="slider">
-            <!-- <p> Ребята, вам предстоит пройти викторину, чтобы проверить ваши знания, полученные за первые месяцы обучения. </p>
+        <!-- <div class="slider"> -->
+        <!-- <p> Ребята, вам предстоит пройти викторину, чтобы проверить ваши знания, полученные за первые месяцы обучения. </p>
           <p>Перед вами будет кол-во вопросов.</p>
           <p><b>Решать задания вы будете командой.</b></p>
           <p>Если кто-то не согласен с ответом, вы должны <b>договориться!</b></p> -->
-            <!-- <p>Если ваше мнение не услышали, <em>сообщите об этом преподавателю</em>.</p> -->
-            <p>Когда будете готовы, нажмите на кнопку:</p>
-            <!-- <div class="prev">
+        <!-- <p>Если ваше мнение не услышали, <em>сообщите об этом преподавателю</em>.</p> -->
+        <!-- <p>Когда будете готовы, нажмите на кнопку:</p> -->
+        <!-- <div class="prev">
     <div class="arrow-1">
         <div></div>
     </div></div> 
       <div class="next">
     <div class="arrow-2">
         <div></div> -->
-            <!-- </div></div> -->
-            <div class='center'>
-                <input type='submit' value='НАЧАТЬ' class='btn start active'>
-            </div>
+        <!-- </div></div> -->
+        <div class='center'>
+            <input type='submit' value='НАЧАТЬ' class='btn start active'>
         </div>
+        <!-- </div> -->
     </header>
+    <section class="settings">
+        <h3>Выберите свой курс</h3>
+        <select class="select_settings">
+            <option value="SS">Создание сайтов</option>
+            <option value="FR">Фронтенд-разработка</option>
+            <option value="PS1">Python Start 1</option>
+            <option value="PS2">Python Start 2</option>
+            <option value="PP1">Python Pro 1</option>
+            <option value="PP2">Python Pro 2</option>
+        </select>
+        <div class='center'>
+            <input type='submit' value='ПОЕХАЛИ' class='btn sett active'>
+        </div>
+    </section>
     <main>
 
-        <div class="question_block" id="first_q">
+        <div class="block question_block" id="first_q">
             <div class="question_number">ВОПРОС 1</div>
             <p class="question">Первый вопрос</p>
             <div class="answers12">
@@ -52,6 +66,27 @@
             <div class="answers34">
                 <div class="answer third">Ответ 3</div>
                 <div class="answer fourth">Ответ 4</div>
+            </div>
+        </div>
+        <div class="block open_question_block" id="first_q">
+            <div class="open_question_number">ВОПРОС 1</div>
+            <p class="open_question">Первый вопрос</p>
+            <p class="attempt_count">Количество попыток:</p>
+            <div class="input_open_answer">
+                <input class="input_open_answer_field" placeholder="Введите ответ">
+                <div class='center'>
+                    <input type='submit' value='ПРОВЕРИТЬ' class='btn check active'>
+                </div>
+            </div>
+        </div>
+        <div class="block task_block" id="first_q">
+            <div class="task_header">ЗАДАНИЕ</div>
+            <p class="task_descr">задание</p>
+            <div class="input_code">
+                <input class="input_code_field" placeholder="Введите код" type="password">
+                <div class='center'>
+                    <input type='submit' value='ГОТОВО' class='btn ready active'>
+                </div>
             </div>
         </div>
         <div class="q_result_block">
