@@ -123,9 +123,7 @@ code_input.addEventListener('change', function () {
 })
 
 
-answer_input.addEventListener('change', function () {
-    btn_check.focus()
-})
+
 
 btn_done.addEventListener('click', function () {
     if (q_number >= questions_list.length) {
@@ -309,6 +307,9 @@ function check_open_answer() {
             answer_input.value = ''
         }
     }
+    answer_input.addEventListener('change', function () {
+        btn_check.focus()
+    })
 
 }
 
