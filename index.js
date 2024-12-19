@@ -119,6 +119,12 @@ code_input.addEventListener('change', function () {
         need_task = false
         code_input.value = ''
     }
+    btn_done.focus()
+})
+
+
+answer_input.addEventListener('change', function () {
+    btn_check.focus()
 })
 
 btn_done.addEventListener('click', function () {
