@@ -1,4 +1,5 @@
 let tg = window.Telegram.WebApp;
+tg.sendData('Начало')
 let btnstart = document.querySelector('.start')
 
 function scrollDown() {
@@ -335,16 +336,14 @@ function check_open_answer() {
     
 
 btn_next.addEventListener('click', function () {
-    if (q_number >= questions_list.length) {
+    if (btn_next.value == 'ЗАВЕРШИТЬ') {
             //    result_score = cur_result
         // finish_test()
-        tg.sendData(function (){
-            return `Поздравляю с завершением викторины
+        tg.sendData(`Поздравляю с завершением викторины
             Ваш результат:
             Верных ответов на основные вопросы: ${q_cur_result}
             Верных ответов на дополнительные вопросы: ${add_q_cur_result}
-            Выполнено заданий: ${t_cur_result}`
-        })
+            Выполнено заданий: ${t_cur_result}`)
     } else {
         next_question()
     }

@@ -27,8 +27,14 @@ user = ''
 @dp.message(CommandStart())
 async def start(message: types.Message):
     # await message.answer(text='Привет!', reply_markup=builder.as_markup())
-    await message.answer(text='Привет! Жми "Начать"')
+    await message.answer(text='Привет! Жми "Начать квест"')
 
+@dp.message(F.content_type == types.ContentType.WEB_APP_DATA) #получаем отправленные данные 
+def answer(webAppMes):
+    print(webAppMes) #вся информация о сообщении
+    print(webAppMes.web_app_data.data) #конкретно то что мы передали в бота
+    bot.send_message(webAppMes.chat.id, f"получили инофрмацию из веб-приложения: {webAppMes.web_app_data.data}") 
+    #отправляем сообщение в ответ на отправку данных из веб-приложения 
 
 # """Тут настройка отправки сообщений преподу, с аутентификацией"""
 # @dp.message(F.text == "Установить настройки")

@@ -321,6 +321,10 @@ main {
 
 }
 
+.open_question_block {
+  
+}
+
 .block::after {
   content: "";
   background: url('karamelnye_trosti_konfety_novyj_god_154204_1400x1050.jpg');
@@ -369,7 +373,7 @@ main {
 .task_descr {
   font-size: 4vw;
   text-align: center;
-  padding: 8vh 5vw;
+  padding: 8vh 5vw 0 5vw;
 
   color: #A30006;
   line-height: 7vh;
