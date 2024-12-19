@@ -33,7 +33,9 @@ function shuffle(array) {
 let q_number = 0
 let add_q_number = 0
 let task_number = 0
-let cur_result = 0
+let q_cur_result = 0
+let add_q_cur_result = 0
+let t_cur_result = 0
 let questions_list
 let add_questions_list
 let tasks_list
@@ -99,6 +101,12 @@ function ask(q_text, q, q_type = null) {
     }
 }
 let code_input = document.querySelector('.input_code_field')
+code_input.addEventListener('keypress', function (e) {
+    var key=e.keyCode || e.which;
+     if (key === 13){ // Клавиша Enter
+        btn_done.click()
+     }
+   });
 
 function give_task(q) {
     btn_done.setAttribute('disabled', '')
@@ -180,6 +188,13 @@ function show_correct(res) {
         console.log(need_add_q, need_task)
 
     } else {
+        if (need_add_q) {
+            add_q_cur_result +=1
+        }else if (need_task) {
+            t_cur_result += 1
+        } else{
+            q_cur_result += 1
+        }
         need_add_q = false
         need_task = false
     }
@@ -277,7 +292,8 @@ function finish_test() {
 
 function check_answer(answer) {
     if (answer == cur_question.r_a) {
-        cur_result += 1
+        // cur_result += 1
+        
         show_correct("Верно")
         // tg.sendData("Верно");
 
@@ -288,12 +304,19 @@ function check_answer(answer) {
     }
 }
 
+let answer_input = document.querySelector('.input_open_answer_field')
+answer_input.addEventListener('keypress', function (e) {
+    var key=e.keyCode || e.which;
+     if (key === 13){ // Клавиша Enter
+        btn_check.click()
+     }
+   });
 function check_open_answer() {
-    let answer_input = document.querySelector('.input_open_answer_field')
+    
     let answer = answer_input.value
     if (cur_question.r_a.split(' ').map(v => v.toLowerCase()).includes(answer.toLowerCase()) ||
         cur_question.r_a == answer) {
-        cur_result += 1
+        // cur_result += 1
         show_correct("Верно")
         answer_input.value = ''
         // tg.sendData("Верно");
@@ -307,16 +330,21 @@ function check_open_answer() {
             answer_input.value = ''
         }
     }
-    answer_input.addEventListener('change', function () {
-        btn_check.focus()
-    })
-
-}
+    
+    }
+    
 
 btn_next.addEventListener('click', function () {
     if (q_number >= questions_list.length) {
-        //        result_score = cur_result
-        finish_test()
+            //    result_score = cur_result
+        // finish_test()
+        tg.sendData(function (){
+            return `Поздравляю с завершением викторины
+            Ваш результат:
+            Верных ответов на основные вопросы: ${q_cur_result}
+            Верных ответов на дополнительные вопросы: ${add_q_cur_result}
+            Выполнено заданий: ${t_cur_result}`
+        })
     } else {
         next_question()
     }
