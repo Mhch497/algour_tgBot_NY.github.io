@@ -176,7 +176,7 @@ function show_result() {
 
 function show_correct(res) {
     q_result.innerHTML = res
-    if (q_number >= questions_list.length) {
+    if (q_number >= 15) {
         btn_next.value = 'ЗАВЕРШИТЬ'
     }
     if (res == 'Неверно') {
@@ -315,7 +315,7 @@ answer_input.addEventListener('keypress', function (e) {
 function check_open_answer() {
     
     let answer = answer_input.value
-    if (cur_question.r_a.split(' ').map(v => v.toLowerCase()).includes(answer.toLowerCase()) ||
+    if (cur_question.r_a.split(',').map(v => v.toLowerCase()).includes(answer.toLowerCase()) ||
         cur_question.r_a == answer) {
         // cur_result += 1
         show_correct("Верно")
@@ -341,10 +341,10 @@ btn_next.addEventListener('click', function () {
         // finish_test()
         console.log('конец')
         tg.sendData(`Поздравляю с завершением викторины
-            Ваш результат:
-            Верных ответов на основные вопросы: ${q_cur_result}
-            Верных ответов на дополнительные вопросы: ${add_q_cur_result}
-            Выполнено заданий: ${t_cur_result}`)
+                     Ваш результат:
+                     Верных ответов на основные вопросы: ${q_cur_result}
+                     Верных ответов на дополнительные вопросы: ${add_q_cur_result}
+                     Выполнено заданий: ${t_cur_result}`)
         tg.close()
     } else {
         next_question()
