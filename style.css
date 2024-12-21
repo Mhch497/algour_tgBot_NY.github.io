@@ -423,9 +423,9 @@ pre {
   color: #A30006;
   background-color: #fff;
   padding: 2vw;
-  font-size: 3vw;
+  font-size: 100%;
   width: 30vw;
-  line-height: 7vh;
+  line-height: 2em;
   height: 10vh;
   display: flex;
   justify-content: center;

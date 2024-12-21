@@ -83,7 +83,7 @@ function ask(q_text, q, q_type = null) {
             ans_buttons[i].innerHTML = answers_list[i]
         }
         show_question_with_ans()
-        question.innerHTML = q_text
+        question.innerHTML = q_text.replaceAll('\n', `<br/>`)
         right_ans.innerHTML = cur_question.r_a
     } else {
 
