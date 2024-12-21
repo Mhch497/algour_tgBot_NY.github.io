@@ -101,17 +101,21 @@ function ask(q_text, q, q_type = null) {
         right_ans.innerHTML = cur_question.r_a
     }
 }
-let code_input = document.querySelector('.input_code_field')
-code_input.addEventListener('keypress', function (e) {
-    var key=e.keyCode || e.which;
-     if (key === 13){ // Клавиша Enter
-        btn_done.click()
-     }
-   });
+// let code_input = document.querySelector('.input_code_field')
+// code_input.addEventListener('keypress', function (e) {
+//     var key=e.keyCode || e.which;
+//      if (key === 13){ // Клавиша Enter
+//         btn_done.click()
+//      }
+//    });
 
 function give_task(q) {
-    btn_done.setAttribute('disabled', '')
 
+    btn_done.setAttribute('disabled', '')
+    setTimeout(function(){
+        btn_done.removeAttribute('disabled')
+        need_task = false
+    }, 30000)
 
     // cur_question = q[Object.keys(q)[0]]
     show_task_block()
@@ -121,15 +125,15 @@ function give_task(q) {
 
 }
 
-code_input.addEventListener('change', function () {
+// code_input.addEventListener('change', function () {
 
-    if (code_input.value == 'Algo59') {
-        btn_done.removeAttribute('disabled')
-        need_task = false
-        code_input.value = ''
-    }
-    btn_done.focus()
-})
+//     if (code_input.value == 'Algo59') {
+//         btn_done.removeAttribute('disabled')
+//         need_task = false
+//         code_input.value = ''
+//     }
+//     btn_done.focus()
+// })
 
 
 
@@ -186,7 +190,7 @@ function show_correct(res) {
             need_add_q = false
             need_task = true
         }
-        console.log(need_add_q, need_task)
+        
 
     } else {
         if (need_add_q) {
@@ -209,7 +213,7 @@ function next_question() {
         ask(Object.keys(questions_list[q_number])[0], q)
         q_number += 1
     } else if (need_add_q == true) {
-        console.log(add_questions_list[add_q_number])
+        // console.log(add_questions_list[add_q_number])
         ask(add_questions_list[add_q_number]['вопрос'], {
                 'r_a': add_questions_list[add_q_number]['ответ']
             },
@@ -217,7 +221,7 @@ function next_question() {
         )
         add_q_number += 1
     } else if (need_task == true) {
-        console.log(tasks_list[task_number])
+        // console.log(tasks_list[task_number])
         give_task(tasks_list[task_number]['задание'])
         task_number += 1
     }
@@ -339,7 +343,7 @@ btn_next.addEventListener('click', function () {
     if (btn_next.value == 'ЗАВЕРШИТЬ') {
             //    result_score = cur_result
         // finish_test()
-        console.log('конец')
+        // console.log('конец')
         tg.sendData(`Поздравляю с завершением викторины
                      Ваш результат:
                      Верных ответов на основные вопросы: ${q_cur_result}
