@@ -339,11 +339,13 @@ btn_next.addEventListener('click', function () {
     if (btn_next.value == 'ЗАВЕРШИТЬ') {
             //    result_score = cur_result
         // finish_test()
+        console.log('конец')
         tg.sendData(`Поздравляю с завершением викторины
             Ваш результат:
             Верных ответов на основные вопросы: ${q_cur_result}
             Верных ответов на дополнительные вопросы: ${add_q_cur_result}
             Выполнено заданий: ${t_cur_result}`)
+        tg.close()
     } else {
         next_question()
     }
