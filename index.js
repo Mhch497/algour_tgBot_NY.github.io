@@ -1,5 +1,5 @@
 let tg = window.Telegram.WebApp;
-tg.sendData('Начало')
+// tg.sendData('Начало')
 let btnstart = document.querySelector('.start')
 
 function scrollDown() {

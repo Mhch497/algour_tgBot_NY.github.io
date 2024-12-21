@@ -4,11 +4,13 @@ import logging
 import os
 
 from aiogram import Bot, Dispatcher, F, types
+from aiogram.enums.content_type import ContentType
 from aiogram.filters import CommandStart
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
-from dotenv import find_dotenv, load_dotenv
+from aiogram.utils.keyboard import ReplyKeyboardBuilder
 
+from dotenv import find_dotenv, load_dotenv
 from kb import builder, courses
 from states import Settings
 
@@ -26,14 +28,17 @@ user = ''
 
 @dp.message(CommandStart())
 async def start(message: types.Message):
+    webAppInfo = types.WebAppInfo(url="https://mhch497.github.io/algour_tgBot_NY.github.io/")
+    builder = ReplyKeyboardBuilder()
+    builder.add(types.KeyboardButton(text='Начать квест', web_app=webAppInfo))
     # await message.answer(text='Привет!', reply_markup=builder.as_markup())
-    await message.answer(text='Привет! Жми "Начать квест"')
+    await message.answer(text='Привет! Жми "Начать квест"', reply_markup=builder.as_markup())
 
-@dp.message(F.content_type == types.ContentType.WEB_APP_DATA) #получаем отправленные данные 
-def answer(webAppMes):
-    print(webAppMes) #вся информация о сообщении
-    print(webAppMes.web_app_data.data) #конкретно то что мы передали в бота
-    bot.send_message(webAppMes.chat.id, f"получили инофрмацию из веб-приложения: {webAppMes.web_app_data.data}") 
+# @dp.message(F.content_type == types.ContentType.WEB_APP_DATA) #получаем отправленные данные 
+# def answer(webAppMes):
+#     print(webAppMes) #вся информация о сообщении
+#     print(webAppMes.web_app_data.data) #конкретно то что мы передали в бота
+#     bot.send_message(webAppMes.chat.id, f"получили инофрмацию из веб-приложения: {webAppMes.web_app_data.data}") 
     #отправляем сообщение в ответ на отправку данных из веб-приложения 
 
 # """Тут настройка отправки сообщений преподу, с аутентификацией"""
@@ -79,11 +84,11 @@ def answer(webAppMes):
 #     await state.clear()
 #     print(os.getenv('COURSE'))
 
-# @dp.message(F.content_type == ContentType.WEB_APP_DATA)
-# async def parse_data(message: types.Message):
-#     data = message.web_app_data.data
-#     # print(data)
-#     await message.answer(data)
+@dp.message(F.content_type == ContentType.WEB_APP_DATA)
+async def parse_data(message: types.Message):
+    data = message.web_app_data.data
+    print(data)
+    await message.answer(data)
 
 
 async def main():
