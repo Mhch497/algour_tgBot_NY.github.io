@@ -184,18 +184,14 @@ function show_correct(res) {
         btn_next.value = 'ЗАВЕРШИТЬ'
     }
     if (res == 'Неверно') {
-        if (need_add_q == false) {
-            need_add_q = true
-        } else if (need_add_q == true) {
-            need_add_q = false
+        
+            // need_add_q = false
             need_task = true
-        }
+        
         
 
     } else {
-        if (need_add_q) {
-            add_q_cur_result +=1
-        }else if (need_task) {
+        if (need_task) {
             t_cur_result += 1
         } else{
             q_cur_result += 1
