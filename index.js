@@ -180,18 +180,27 @@ function show_result() {
 
 function show_correct(res) {
     q_result.innerHTML = res
-    if (q_number >= 15) {
+    if (q_number >= 15 || q_number >= questions_list.length) {
         btn_next.value = 'ЗАВЕРШИТЬ'
     }
     if (res == 'Неверно') {
-        
-            // need_add_q = false
+        if (add_questions_list.length != 0) {
+            if (need_add_q == false) {
+                need_add_q = true
+            } else if (need_add_q == true) {
+                need_add_q = false
+                need_task = true
+            }
+        } else {
             need_task = true
+        }
         
         
 
     } else {
-        if (need_task) {
+        if (need_add_q) {
+            add_q_cur_result +=1
+        }else if (need_task) {
             t_cur_result += 1
         } else{
             q_cur_result += 1
