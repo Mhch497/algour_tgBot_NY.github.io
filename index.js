@@ -114,6 +114,7 @@ function give_task(q) {
     btn_done.setAttribute('disabled', '')
     setTimeout(function(){
         btn_done.removeAttribute('disabled')
+        t_cur_result+=1
         need_task = false
     }, 30000)
 
