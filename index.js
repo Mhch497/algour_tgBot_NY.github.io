@@ -325,8 +325,8 @@ answer_input.addEventListener('keypress', function (e) {
 function check_open_answer() {
     
     let answer = answer_input.value
-    if (cur_question.r_a.split(',').map(v => v.toLowerCase()).includes(answer.toLowerCase()) ||
-        cur_question.r_a.toLowerCase() == answer.toLowerCase()) {
+    if (cur_question.r_a.split(',').map(v => v.toLowerCase().replaceAll("\'", '\"')).includes(answer.toLowerCase().replaceAll("\'", '\"') ||
+        cur_question.r_a.toLowerCase().replaceAll("\'", '\"') == answer.toLowerCase().replaceAll("\'", '\"')) {
         // cur_result += 1
         show_correct("Верно")
         answer_input.value = ''
